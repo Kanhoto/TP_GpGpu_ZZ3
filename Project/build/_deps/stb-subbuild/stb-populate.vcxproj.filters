@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\cd1ad30ac5eaac9e1b300a8458006777\stb-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\c737776b22f847d043b6e227a320787e\stb-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\caee579bf24cfe3958c76c0f334f7960\stb-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\vicanhotod\Documents\GPGPU_ISIMA_2022-2023\TPs\Project\build\_deps\stb-subbuild\CMakeFiles\stb-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1195C97C-ED5F-30F6-8E87-5CD00F26F360}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\ISIMA\GPGPU_ISIMA_2022-2023\TPs\Project_correction\build\_deps\glad-build\src\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\ISIMA\GPGPU_ISIMA_2022-2023\TPs\Project_correction\build\_deps\glad-build\include\glad\glad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\ISIMA\GPGPU_ISIMA_2022-2023\TPs\Project_correction\build\_deps\glad-src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{88C8668A-DF75-3CCB-8123-586945157CAE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AB8352B6-1804-3115-B423-E412DF2B2A61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F0DBB2EE-61C0-37E6-BE2C-4D5706BA7B28}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

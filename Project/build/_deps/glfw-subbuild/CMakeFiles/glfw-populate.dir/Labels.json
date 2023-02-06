@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0e9fcd6493dc101dc2767eda2791f573/glfw-populate.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/3bc169db41580e3294a60951f075d6e5/glfw-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/vicanhotod/Documents/GPGPU_ISIMA_2022-2023/TPs/Project/build/_deps/glfw-subbuild/CMakeFiles/0d269ed7ca231ff7d6cc3585d4ddc344/glfw-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glfw-populate"
+		],
+		"name" : "glfw-populate"
+	}
+}

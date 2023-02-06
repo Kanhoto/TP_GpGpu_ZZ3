@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{here}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry}
+\usepackage{cite}
+\usepackage[final]{hyperref}
+\usepackage{listings}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	filecolor=magenta,
+	urlcolor=blue         
+}
+
+\begin{document}
+
+\title{Textures}
+\maketitle
+
+A texture is a two dimensional buffer (it can be 1D or 3D too) with extra property. The GPU have some built in ships to make some useful computations. For example, with a 1D texture object you can ask this value:
+\begin{lstlisting}
+	float value = my_texture[1.3f];
+\end{lstlisting}
+In this situation, the GPU can return my\_texture[1] if filtering property is set to "closest" or the average value between my\_texture[1] and my\_texture[2] if the filtering property is set to "linear". Asking a continuous value into a buffer is not possible.\\
+In this example, we define a 2D memory for 16x16 pixels.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{figures/stone.png}
+	\caption{Small image at scale one}
+\end{figure}
+After that we want to show thus pixel in a large window. A up-scaling is necessary. To do so, each pixel of the window will read the buffer and choose a pixel to print. On the first image, the strategy is to choose the image pixel the closest to the position of the window pixel in continuous space. On the second image, the strategy is to average the image pixel to avoid some aliasing.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{figures/nearest.png}
+	\caption{Reading a small 2D texture in nearest}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{figures/bilinear.png}
+	\caption{Reading a small 2D texture in linear}
+\end{figure}
+
+In CUDA, texture provide this kind of feature but there are read only or write only. The advantage of surface is there ability to be read and write on the same kernel. Unfortunately, they cannot use the sampling feature describe above. The same memory can be mapped to texture of surface. In function of the use case, texture or surface can be use.
+
+
+\end{document}
