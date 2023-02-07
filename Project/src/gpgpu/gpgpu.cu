@@ -13,6 +13,7 @@ void GetGPGPUInfo() {
 	std::cout << "maxThreadsPerBlock: " << cuda_propeties.maxThreadsPerBlock << std::endl;
 }
 
+// Initialisation des tableaux de lapins et de loups dans le GPU
 void Init(Fox** f_i, int nf_i, Rabbit** r_i, int nr_i) {
 	cudaMalloc((void**) f_i, sizeof(Fox) * nf_i);
 	cudaMalloc((void**) r_i, sizeof(Fox) * nr_i);
@@ -91,20 +92,20 @@ __device__ float random(float x, float y) {
 }
 
 __global__ void moveFoxs(Fox* fox, int32_t nb_foxs, Rabbit* rabbits, int32_t nb_rabbits) {
-	int index = threadIdx.x; // 0 - nbFoxes
+	int index = threadIdx.x;
 	if (fox[index].is_alive) {
-		float angle = random(fox[index].u, fox[index].v) * 2.f - 1.f;
-		float modifier = 0.5f;
-		float temp = cos(angle * modifier) * fox[index].direction_u + sin(angle * modifier) * fox[index].direction_v;
-		fox[index].direction_v = -fox[index].direction_u * sin(angle * modifier) + cos(angle * modifier) * fox[index].direction_v;
-		fox[index].direction_u = temp;
 
+		// On regarde tous les lapins vivants
 		for (int i = 0; i < nb_rabbits; ++i) {
 			if (rabbits[i].is_alive) {
+
+				// Si un lapin se trouve dans son périmète, il se dirige vers celui-ci
 				if (hypotf(fox[index].u - rabbits[i].u, fox[index].v - rabbits[i].v) < fox[index].detection_radius) {
 					fox[index].direction_u = (rabbits[i].u - fox[index].u);
 					fox[index].direction_v = (rabbits[i].v - fox[index].v);
 				}
+
+				// Si le loup est en contact avec le lapin, il le mange
 				if (hypotf(fox[index].u - rabbits[i].u, fox[index].v - rabbits[i].v) < fox[index].radius) {
 					fox[index].starvation_modifier += 0.005f;
 					fox[index].radius += 0.0002f;
@@ -113,14 +114,24 @@ __global__ void moveFoxs(Fox* fox, int32_t nb_foxs, Rabbit* rabbits, int32_t nb_
 					rabbits[i].is_alive = false;
 					fox[index].starvation -= 10.f;
 				}
-				//break;
 			}
 		}
 
+		// On normalise l'angle entre -1 et 1
+		float angle = random(fox[index].u, fox[index].v) * 2.f - 1.f;
+		float modifier = 0.5f;
+
+		// On calcule les nouvelles directions du loup
+		float temp = cos(angle * modifier) * fox[index].direction_u + sin(angle * modifier) * fox[index].direction_v;
+		fox[index].direction_v = -fox[index].direction_u * sin(angle * modifier) + cos(angle * modifier) * fox[index].direction_v;
+		fox[index].direction_u = temp;
+
+		// On normalise les directions calculées
 		float norm = sqrt(pow(fox[index].direction_u, 2) + pow(fox[index].direction_v, 2));
 		fox[index].direction_u = fox[index].direction_u / norm;
 		fox[index].direction_v = fox[index].direction_v / norm;
 
+		// on calcule les nouvelles positions en fonction de la direction et de la vitesse
 		float new_pos_x = fox[index].u + fox[index].direction_u * fox[index].speed;
 		float new_pos_y = fox[index].v + fox[index].direction_v * fox[index].speed;
 
@@ -133,11 +144,16 @@ __global__ void moveFoxs(Fox* fox, int32_t nb_foxs, Rabbit* rabbits, int32_t nb_
 		else
 			fox[index].direction_v = -fox[index].direction_v;
 
-		fox[index].starvation += 0.015f + fox[index].starvation_modifier;
+		// On augmente la faim du loup
+		float defaultStarvation = 0.015f;
+		fox[index].starvation += defaultStarvation + fox[index].starvation_modifier;
+
+		// Si le loup dépasse un certain seuil de faim, il disparaît
 		if (fox[index].starvation >= fox[index].max_starvation) {
 			fox[index].is_alive = false;
 		}
 
+		// Si le loup mange un certain nombre de lapins, alors le loup se reproduit
 		if (fox[index].eatenPrey >= fox[index].max_eatenPrey) {
 			int i = 0;
 			while (fox[i].is_alive) {
@@ -162,13 +178,21 @@ __global__ void moveFoxs(Fox* fox, int32_t nb_foxs, Rabbit* rabbits, int32_t nb_
 __global__ void moveRabbits(Rabbit* rabbit, int32_t nb_rabbits) {
 	int index = threadIdx.x;
 	if (rabbit[index].is_alive) {
+		// On normalise l'angle entre -1 et 1
 		float angle = random(rabbit[index].u, rabbit[index].v) * 2.f - 1.f;
 		float modifier = 0.3f;
 
+		// On calcule les nouvelles directions du lapin
 		float temp = cos(angle * modifier) * rabbit[index].direction_u + sin(angle * modifier) * rabbit[index].direction_v;
 		rabbit[index].direction_v = -rabbit[index].direction_u * sin(angle * modifier) + cos(angle * modifier) * rabbit[index].direction_v;
 		rabbit[index].direction_u = temp;
 
+		// On normalise les directions calculées
+		float norm = sqrt(pow(rabbit[index].direction_u, 2) + pow(rabbit[index].direction_v, 2));
+		rabbit[index].direction_u = rabbit[index].direction_u / norm;
+		rabbit[index].direction_v = rabbit[index].direction_v / norm;
+
+		// on calcule les nouvelles positions en fonction de la direction et de la vitesse
 		float new_pos_x = rabbit[index].u + rabbit[index].direction_u * rabbit[index].speed;
 		float new_pos_y = rabbit[index].v + rabbit[index].direction_v * rabbit[index].speed;
 
@@ -181,7 +205,10 @@ __global__ void moveRabbits(Rabbit* rabbit, int32_t nb_rabbits) {
 		else
 			rabbit[index].direction_v = - rabbit[index].direction_v;
 
-		if (abs(angle) < 0.0008f) {
+		// On déclenche de manière aléatoire une réproduction de lapin
+		float randomValue = abs(angle);
+		float luckFactor = 0.0008f;
+		if (randomValue < luckFactor) {
 			int i = 0;
 			while (rabbit[i].is_alive){
 				++i;
